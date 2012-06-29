@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>SVN 工具</title>
+<!--http://yui.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css-->
+<link rel="stylesheet" href="cssreset-min.css">
+<style type="text/css">
+    h3 {
+        display: inline-block;
+        font:bold 18px/32px tahoma;
+        color: #666;
+    }
+    table {
+        margin: 0px 0px 0px 20px;
+        font:bold 14px/14px tahoma;
+    }
+    th,td{
+        padding:0px 10px;
+    }
+</style>
+</head>
+<body>
+    <h3>检查SVN合并</h3>
+    <table>
+        <tr>
+            <th>项目</th>
+            <td><select name="project" id="project">
+                <option value="weiyouxi">游戏中心</option>
+                <option value="forum">游戏社区</option>
+                </select>
+            </td>
+            <th>分支</th>
+            <td><input type="text" name="branch" id="branch" value=""/></td>
+            <td><input type="button" value="检查" onclick="checkMerge();"></td>
+        </tr>
+    </table>
+</body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+/*    
+input{
+        project
+        branch
+    }
+output{
+        true/false
+    }
+*/
+function checkMerge(){
+    var config = {
+        url : "http://svn.weiyouxi.com/checkMerge",
+        target : "trunk"
+    };
+    var data = {
+        project : $("#project").val(),
+        trunk : config.target,
+        branch : $("#branch").val()
+    };
+
+    if(data.branch){
+        $.getJSON(config.url,data,function(result){
+            if(result.ret==1){
+                var line = result.content.replace("\n","");
+                if(parseInt(line,10)>0){
+                    alert("该分支没有合并，请合并！");
+                }else if(parseInt(line,10) == -1){
+                    alert("亲，别玩了，填正确分支名！")
+                }else{
+                    alert("已合并！");
+                }
+            }else{
+                alert("我擦，貌似挂了！");
+                return false;
+            }
+        });
+    }else{
+        alert("亲，别玩了，填上分支名！");
+        return false;
+    }
+
+}
+</script>
+</html>
