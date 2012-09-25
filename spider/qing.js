@@ -12,7 +12,7 @@ var client = mysql.createClient({
     port:10000,
     host:"127.0.0.1"
 });
-
+var RNUM = 4075659660;
 function list(opts){
     var List =function(opts){
         this.opts = $.extend(opts,{
@@ -42,8 +42,8 @@ function list(opts){
             }
             list.forEach(function(item){
                 var i = {};
-                var dd = new Date();
-                i['id'] = dd.getTime().toString().substring(4)*1000+dd.getMilliseconds();
+                RNUM ++ ;
+                i['id'] = RNUM;
                 i['imgsrc'] = $(item).find(".itemInfo a.pic").find("img").attr("src");
                 i['title'] = $(item).find(".itemInfo a.pic").attr("title");
                 i['author'] = $(item).find(".itemInfo .author .avatar").attr("title");
@@ -62,9 +62,7 @@ function list(opts){
                             $.each($imgs,function(i,img){
                                 var src = $(img).attr("src");
                                 if(!!$(img).attr("real_src")) src = $(img).attr("real_src");
-                                var dd = new Date();
-                                var id = dd.getTime().toString().substring(4)*1000+dd.getMilliseconds();
-                                console.log('INSERT INTO mz_detail SET id= '+id+', imgsrc = "'+src+'", parent = '+pId);
+                                console.log('INSERT INTO mz_detail SET imgsrc = "'+src+'", parent = '+pId);
                             });
                         });
                     }
