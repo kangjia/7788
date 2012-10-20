@@ -20,16 +20,7 @@ List.prototype.query =  function(fn){
     var page = this.opts.page;
     var size = this.opts.size;
     var start = (page - 1) * size;
-    
-    var tagMap = {
-        "1" : "人体艺术",
-        "2" : "写真",
-        "3" : "新娘",
-        "4" : "模特",
-        "5" : "短发",
-        "6" : "美女",
-        "7" : "自拍"
-    } 
+    var tagMap = require("../global.config").tagMap;
     var sql = "select * from mz_list order by rand() limit " + size;
     if( typeof tagMap[tag+""] !== "undefined" ){
         sql = "select * from mz_list where tag = '"+tagMap[tag+""]+"' limit " + start + ", " + size;
