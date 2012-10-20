@@ -21,11 +21,12 @@ List.prototype.query =  function(fn){
     var size = this.opts.size;
     var start = (page - 1) * size;
     var tagMap = require("../global.config").tagMap;
-    var sql = "select * from mz_list order by rand() limit " + size;
+    var sql = "select CONCAT('m',id) as id,imgsrc,author,title,detail,tag,source from mz_list order by rand() limit " + size;
     if( typeof tagMap[tag+""] !== "undefined" ){
-        sql = "select * from mz_list where tag = '"+tagMap[tag+""]+"' limit " + start + ", " + size;
+        sql = "select CONCAT('m',id) as id,imgsrc,author,title,detail,tag,source from mz_list where tag = '"+tagMap[tag+""]+"' limit " + start + ", " + size;
     }
     client.query(sql,function(err,results,filed){ 
+        console.log(err);
         fn.call(this,err,results);
     });
 }  
