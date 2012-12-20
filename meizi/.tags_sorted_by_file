@@ -3,10 +3,27 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
+api	app.js	/^var api = require(".\/routes\/api");$/;"	v
 app	app.js	/^var app = express();$/;"	v
 express	app.js	/^var express = require('express')$/;"	v
-meizhi	app.js	/^var meizhi = require(".\/routes\/meizhi");$/;"	v
+exports.tagMap.1	global.config.js	/^exports.tagMap = {$/;"	p
+exports.tagMap.2	global.config.js	/^    "1" : "人体艺术",$/;"	p
+exports.tagMap.3	global.config.js	/^    "2" : "写真",$/;"	p
+exports.tagMap.4	global.config.js	/^    "3" : "新娘",$/;"	p
+exports.tagMap.5	global.config.js	/^    "4" : "模特",$/;"	p
+exports.tagMap.6	global.config.js	/^    "5" : "短发",$/;"	p
+exports.tagMap.7	global.config.js	/^    "6" : "美女",$/;"	p
+client	helper/mysql.js	/^var client;$/;"	v
+mysql	helper/mysql.js	/^var mysql = require("mysql");$/;"	v
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+Detail	module/detail.js	/^var Detail = function(opts){$/;"	c
+Detail.query	module/detail.js	/^Detail.prototype.query = function(fn){$/;"	m
+extend	module/detail.js	/^var extend = require("node.extend");$/;"	v
+mysql	module/detail.js	/^var mysql = require("..\/helper\/mysql");$/;"	v
+List	module/list.js	/^var List = function(opts){$/;"	c
+List.query	module/list.js	/^List.prototype.query =  function(fn){$/;"	m
+extend	module/list.js	/^var extend = require("node.extend");$/;"	v
+mysql	module/list.js	/^var mysql = require("..\/helper\/mysql");$/;"	v
 MOCHA_OPTS	node_modules/express/Makefile	/^MOCHA_OPTS=$/;"	m
 REPORTER	node_modules/express/Makefile	/^REPORTER = dot$/;"	m
 http	node_modules/express/client.js	/^var http = require('http');$/;"	v
@@ -1065,6 +1082,10 @@ assert	node_modules/mysql/test/unit/test-mysql.js	/^var assert = require('assert
 common	node_modules/mysql/test/unit/test-mysql.js	/^var common = require('..\/common');$/;"	v
 mysql	node_modules/mysql/test/unit/test-mysql.js	/^var mysql  = require(common.dir.root);$/;"	v
 test	node_modules/mysql/test/unit/test-mysql.js	/^var test   = require('utest');$/;"	v
+extend	node_modules/node.extend/lib/extend.js	/^function extend () {$/;"	f
+fs	node_modules/node.extend/lib/extend.js	/^var fs = require( 'fs' );$/;"	v
+is_plain_obj	node_modules/node.extend/lib/extend.js	/^function is_plain_obj( obj ){$/;"	f
+exports.detail	routes/api.js	/^}$/;"	f
+exports.list	routes/api.js	/^\/**$/;"	f
 exports.index	routes/index.js	/^$/;"	f
-meizhi.人体	routes/meizhi.js	/^var meizhi= {$/;"	m
 exports.list	routes/user.js	/^$/;"	f

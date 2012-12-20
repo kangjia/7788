@@ -31,5 +31,4 @@ List.prototype.query =  function(fn){
     });
 }  
 
-
 exports.List = List;
